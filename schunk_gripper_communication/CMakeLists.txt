@@ -25,6 +25,7 @@ find_package(catkin REQUIRED COMPONENTS
   actionlib
   control_msgs
   controller_manager
+  moveit_ros_planning_interface
   hardware_interface
   message_generation
   roscpp
@@ -289,6 +290,12 @@ install(DIRECTORY urdf/
 # install the launch files
 install(DIRECTORY launch/
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch)
+
+install(DIRECTORY launch DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+        PATTERN "setup_assistant.launch" EXCLUDE)
+
+install(DIRECTORY config DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+
 
 # all install targets should use catkin DESTINATION variables
 # See http://ros.org/doc/api/catkin/html/adv_user_guide/variables.html
